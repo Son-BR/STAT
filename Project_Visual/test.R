@@ -150,7 +150,7 @@ library(png)
 
 animate(myPlot10.sort, duration = 5, fps = 20, width = 2000, height = 400, renderer = gifski_renderer())
 anim_save("data.10.sort.gif")
-
+data.10.sort
 # =======================================================================================================
 
 # 연도별 평균
@@ -162,36 +162,78 @@ df <- df[df$항만명 == "부산", ]
 library(ggplot2)
 library(gganimate)
 
-df.test <- df[df$조회년도==2017&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:38)]
+# df.test.2017 <- df[df$조회년도==2017&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:37)]
+# df.test.2018 <- df[df$조회년도==2018&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:37)]
+# df.test.2019 <- df[df$조회년도==2019&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:37)]
+# df.test.2020 <- df[df$조회년도==2020&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:37)]
+# df.test.2021 <- df[df$조회년도==2021&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:37)]
 
-names(df.test)[2:33]
+df.test <- df[df$입출항구분=="입항"&df$Measures=="총계",c(1,7:37)]
 df.test
+
 # Make 2 basic states and concatenate them:
-# a <- data.frame(subject = c(names(df.test)[2:33]), values=as.numeric(df.test[1,c(2:33)]),month=c(1))
-# b <- data.frame(subject = c(names(df.test)[2:33]), values=as.numeric(df.test[2,c(2:33)]),month=c(2))
 
-data <- data.frame(subject = c(names(df.test)[2:33]), values=as.numeric(df.test[1,c(2:33)]),month=c(1))
+df.test[,c(2:32)][1]
+length(df.test[,c(2:32)])
 
-for (i in (2:12)) {
-  b <- data.frame(subject = c(names(df.test)[2:33]), values=as.numeric(df.test[i,c(2:33)]),month=c(i))
-  data <- rbind(data,b)
+rep(c(names(df.test)[2:32]))
+df.test[,-1]
+df.values <- unlist(t(df.test[,-1]))
+
+str(df.values)
+length(df.values)
+c(df.values)
+
+
+data <- data.frame(subject = rep(c(names(df.test)[2:32]),times=60), values=c(df.values),year=rep(c(2017:2021), each=372), month=rep(c(1:12), times=5 ,each=31))
+
+
+# 상위 10개 품목 이름
+data.name <- names(head(sort(tapply(data$values, data$subject,mean),decreasing = T),10))
+
+# 상위 10개 품목 테이터 프레임
+data10 <- data[data$subject %in% data.name,]
+
+
+data10[data10$year==2017,]
+data10
+
+tapply(data10[data10$year==2017,]$values, data10[data10$year==2017,]$subject, mean)
+ 
+a <- data.frame(tapply(data10[data10$year==2017,]$values, data10[data10$year==2017,]$subject, mean))
+a$tapply.data10.data10.year....2017....values..data10.data10.year....
+names(a) <- "ave"
+a$year <- c(2017)
+a
+for (i in (2018:2021)) {
+  b <- data.frame(tapply(data10[data10$year==i,]$values, data10[data10$year==i,]$subject, mean))
+  names(b) <- "ave"
+  b$year <- c(i)
+  a <- rbind(a,b)
 }
-data
- 
-# Basic barplot:
-ggplot(b, aes(x=subject, y=values, fill=subject)) + 
-  geom_bar(stat='identity')
- 
+c(row.names(a))
+length(a$ave)
+length(c(row.names(a)))
+a$subject <- rep(a$subject[1:10],5)
+a
 # Make a ggplot, but add frame=year: one image per year
-myPlot <- ggplot(data, aes(x=subject, y=values, fill=subject)) + 
+myPlot <- ggplot(a, aes(x=subject, y=ave, fill=subject)) + 
   geom_bar(stat='identity') +
   theme_bw() +
+
+  # x축 순서 변경
+  scale_x_discrete(limits = c(data.name)) +
   # gganimate specific bits:
   transition_states(
-    month,
+    year,
     transition_length = 2,
     state_length = 1
   ) +
+  # 그래프 이름
+  ggtitle('Now showing {closest_state}',
+          #subtitle = 'Frame {frame} of {nframes}'
+          ) +
+
   ease_aes('sine-in-out')
 
 # Save at gif:
@@ -200,4 +242,6 @@ library(gifski)
 library(png)
 
 animate(myPlot, duration = 5, fps = 20, width = 2000, height = 400, renderer = gifski_renderer())
-anim_save("288-animated-barplot-transition.gif")
+anim_save("5year10.gif")
+
+a
