@@ -1,0 +1,335 @@
+---
+title: "Analysis or House Prices"
+author: "Jaehun"
+date: "2022-08-09"
+output: html_document
+---
+\
+
+### 참고자료
+<img src="./Kaggly01.png"/> \
+주소 : "https://www.kaggle.com/code/pmarcelino/comprehensive-data-exploration-with-python" \
+Kaggle 사이트에서 House Price 와 관련된 코드 중 가장 '좋아요'가 높은 페이지. \
+\
+<img src="./Kaggly02.png"/> \
+분석 특징 \
+  - 파이썬으로 작성됨 \
+  - 따라가기 쉬움 (자료랑 데이트하는 컨샙)\
+\
+\
+\
+
+### 1. 데이터의 기본적인 정보 확인
+
+```{r pressure2, echo=FALSE}
+df <- read.csv('House_Prices.csv', na.strings = c("", " ", NA))
+
+summary(df)
+
+dim(df)
+```
+
+**81**개의 컬럼이라 변수들 중에서 유의미하다고 생각하는 변수를 뽑아서 사용할 필요가 있다.\
+\
+\
+\
+
+### 2. 기준 변수 분석
+#### 2.1 SalePrice 분석
+```{r pressure3, echo=FALSE}
+summary(df$SalePrice)
+```
+
+
+#### 2.2 SalePrice 도수분포표
+```{r pressure4, echo=FALSE}
+# x
+x <- seq(-4, 4, length.out = 101)
+# normal
+yn <- dnorm(x, mean = 0, sd = 1)
+# t
+yt003 <- dt(x, 3)
+yt030 <- dt(x, 30)
+
+# 도수분포표로 시각화
+hist(round(df$SalePrice / 1000, 1),
+     col = 'yellow',
+     main = '판매가의 도수분포표',
+     xlab = "가격  (Unit : 1000$)",
+     ylab = "빈도수"
+)
+par(new =TRUE)
+plot(x, yt003, type = 'l', col = 'blue', xlab ='', ylab = '',axes=FALSE)
+```
+
+#### 2.3 SalePrice 이상치 확인
+
+```{r pressure5, echo=FALSE, fig.show='hide'}
+#install.packages("moments")
+library(moments)
+str(df$SalePrice)
+
+cat("이상치 수 :", length(boxplot(df$SalePrice)$out))
+
+cat("왜도 : ", skewness(df$SalePrice))
+cat("첨도 : ", kurtosis(df$SalePrice))
+```
+정규분포의 왜도 첨도 기준을 벗어난 푸아성 분포를 띄고있다.
+
+### 푸아성분포
+#### 일정 주어진 생산시간 동안 발생하는 불량 수와 처럼
+#### 특정 사건의 발생 확률이 아주 작은 확률분포를 의미한다.
+
+\
+\
+\
+
+#### 2.4 기본정보를 시각화
+```{r pressure6, echo=FALSE}
+boxplot(round(df$SalePrice / 1000, 1),
+        main = "판매가의 기본정보",
+        col = 'yellow')
+```
+\
+**자료의 특징** \
+  1. 한쪽으로 치우쳐져 있다(왜도가 크다)\
+  2. 특정값에 몰려있다.(첨도가 높다)\
+
+### 3. 변수 설정
+
+#### 3.1 수치형 변수 선정
+
+```{r pressure7, echo=FALSE}
+names(df)
+
+df_0 <- df[, c('LotArea','MasVnrArea','BsmtFinSF1','GrLivArea','BsmtUnfSF','TotalBsmtSF','GarageArea','SalePrice')]
+
+plot(df_0,
+     main = '수치형 변수들 간 상관관계')
+```
+
+#### 3.2 GrLivArea(거실 면적 평방피트 0.03평) 변수와 가격 간의 상관관계
+#### 3.2.1 거실 면적 도수분포표
+
+```{r pressure8, echo=FALSE}
+library(scales)
+hist(round(df$GrLivArea * 0.03, 1),
+     main = '거실 면적에 대한 도수 분포표',
+     xlab = '거실 면적 (단위 : 평)',
+     ylab = '빈도수',
+     col = 'tomato',
+     xlim = c(0, 180),
+     ylim = c(0, 420)
+     )
+par(new =TRUE)
+plot(x, yt003, type = 'l', col = 'blue', xlab ='', ylab = '',axes=FALSE)
+```
+
+#### 3.2.2 거실 면적의 기본정보
+
+```{r pressure9, echo=FALSE}
+boxplot(df$GrLivArea,
+        main = "거실면적의 기본정보",
+        col = 'tomato')
+```
+
+#### 3.2.3 가격과 거실 면적 간 산점도
+
+```{r pressure10, echo=FALSE}
+library(scales)
+plot(round(df$SalePrice / 1000, 1),
+     (df$GrLivArea * 0.03),
+     col = alpha('tomato', 0.3),
+     pch = '+',
+     xlab = "가격 (Unit : 1000$)",
+     ylab = "거실 면적 (단위 : 평)",
+     main = '가격과 거실 면적 간 산점도'
+     )
+```
+
+
+#### 3.3 질적변수
+#### 3.3.1 OverallQual(전체 상태 등급) 변수 분석
+
+```{r pressure11, echo=FALSE}
+table(df$OverallQual)
+hist(df$OverallQual,
+     col = 'cyan',
+     main = '전체 상태 등급에 대한 도수분포표',
+     xlab = '전체 상태 등급',
+     ylab = '빈도 수',
+     xlim = c(0,10)
+     ) 
+```
+
+#### 3.3.2 가격과 전체 상태 등급 간의 상관관계
+```{r pressure12, echo=FALSE}
+boxplot(round(SalePrice/1000, 1) ~ OverallQual,
+        data = df,
+        main = '가격과 전체 상태 등급 간의 상관관계',
+        xlab = "전체 상태 등급",
+        ylab = "가격  (Unit : 1000$)",
+        col = 3:13)
+```
+
+#### 4. 이상치를 제거하고 비교
+#### 4.1 자료에서 이상치 확인 후 제거
+
+```{r pressure13, echo=FALSE}
+# 가격 변수
+boxplot.stats(df$SalePrice)$stats
+# 면적 변수
+boxplot.stats(df$GrLivArea)$stats
+
+```
+
+#### 가격과 면적의 이상치 정도
+```{r pressure14, echo=FALSE, fig.show='hide'}
+par(mfrow = c(1, 2))
+a <- length(boxplot(df$SalePrice)$out)
+b <- length(boxplot(df$GrLivArea)$out)
+par(mfrow = c(1, 1))
+cat('가격에서 이상치 비중 :', round(a/length(df$SalePrice),2), '\n')
+cat('면적에서 이상치 비중 :', round(b/length(df$GrLivArea),2))
+```
+
+```{r pressure15, echo=FALSE}
+df2 <- df
+
+df2$SalePrice <- ifelse(df2$SalePrice > 340000, NA, df2$SalePrice)
+df2$GrLivArea <- ifelse(df$GrLivArea > 2730, NA, df2$GrLivArea)
+
+df3 <- df2[,c('SalePrice','GrLivArea','OverallQual')]
+df3 <-  na.omit(df3)
+```
+
+#### 4.2 이상치 유무에 따른 도수분포표 비교
+
+```{r pressure16, echo=FALSE}
+par(mfrow = c(1, 2))
+hist(round(df$SalePrice / 1000, 1),
+     col = 'yellow',
+     main = '판매가의 도수분포표',
+     xlab = "가격  (Unit : 1000$)",
+     ylab = "빈도수"
+)
+par(new =TRUE)
+plot(x, yt003, type ='l' , col = 'blue', xlab ='', ylab = '',axes=FALSE)
+hist(round(df3$SalePrice / 1000, 1),
+     col = 'yellow',
+     main = '이상치를 제외한 판매가의 도수분포표',
+     xlab = "이상치를 제외한 가격  (Unit : 1000$)",
+     ylab = "빈도수",
+     xlim = c(0, 400),
+     ylim = c(0, 250)
+)
+par(new =TRUE)
+plot(x, yt003, type ='l' , col = 'blue', xlab ='', ylab = '',axes=FALSE)
+par(mfrow = c(1, 1))
+```
+
+```{r pressure44, echo=FALSE}
+par(mfrow = c(1, 2))
+hist(round(df$GrLivArea / 1000, 1),
+     col = 'tomato',
+     main = '판매가의 도수분포표',
+     xlab = "이상치를 제외한 거실 면적 (단위 : 평)",
+     ylab = "빈도수"
+)
+par(new =TRUE)
+plot(x, yt003, type ='l' , col = 'blue', xlab ='', ylab = '',axes=FALSE)
+hist(round(df3$GrLivArea / 1000, 1),
+     col = 'tomato',
+     main = '판매가의 도수분포표',
+     xlab = "이상치를 제외한 거실 면적 (단위 : 평)",
+     ylab = "빈도수"
+)
+par(new =TRUE)
+plot(x, yt003, type ='l' , col = 'blue', xlab ='', ylab = '',axes=FALSE)
+par(mfrow = c(1, 1))
+```
+
+
+#### 4.2 이상치 유무에 따른 가격과 면적 간의 산점도 비교
+
+```{r pressure17, echo=FALSE}
+par(mfrow = c(1, 2))
+plot(round(df$SalePrice / 1000, 1),
+     (df$GrLivArea * 0.03),
+     col = alpha('tomato', 0.3),
+     pch = '+',
+     xlab = "가격 (Unit : 1000$)",
+     ylab = "거실 면적 (단위 : 평)",
+     main = '가격과 거실 면적 간의 산점도'
+)
+plot(round(df3$SalePrice / 1000, 1),
+     (df3$GrLivArea * 0.03),
+     col = alpha('dark red', 0.3),
+     pch = '+',
+     xlab = "이상치가 없는 가격 (Unit : 1000$)",
+     ylab = "이상치가 없는 거실 면적 (단위 : 평)",
+     main = '이상치가 없는 가격과 거실 면적 간의 산점도'
+)
+par(mfrow = c(1, 1))
+```
+
+#### 4.3 이상치 유무에 따른 가격과 등급 간의 상관관계 비교
+
+```{r pressure18, echo=FALSE}
+par(mfrow = c(1, 2))
+boxplot(round(SalePrice/1000, 1) ~ OverallQual,
+        data = df,
+        xlab = "전체 상태 등급",
+        ylab = "가격  (Unit : 1000$)",
+        main = '가격과 전체 상태 등급 간의 상관관계',
+        col = 3:13)
+boxplot(round(SalePrice/1000, 1) ~ OverallQual,
+        data = df3,
+        xlab = "전체 상태 등급",
+        ylab = "이상치가 없는 가격  (Unit : 1000$)",
+        main = '이상치가 없는 가격과 전체 상태 등급 간의 상관관계',
+        col = 3:13)
+par(mfrow = c(1, 1))
+```
+
+#### 5 첨도와 왜도, 상관계수
+
+```{r pressure19, echo=FALSE}
+library(moments)
+price_ske = skewness(df$SalePrice)
+price_kur = kurtosis(df$SalePrice)
+
+price_ske_3 = skewness(df3$SalePrice)
+price_kur_3 = kurtosis(df3$SalePrice)
+
+ga_ske = skewness(df$GrLivArea)
+ga_kur = kurtosis(df$GrLivArea)
+
+ga_ske_3 = skewness(df3$GrLivArea)
+ga_kur_3 = kurtosis(df3$GrLivArea)
+
+pg_cor = cor(df$SalePrice,df$GrLivArea)
+pg_cor_3 =cor(df3$SalePrice,df3$GrLivArea)
+
+po_cor = cor(df$SalePrice,df$OverallQual)
+po_cor_3 =cor(df3$SalePrice,df3$OverallQual)
+
+data_0 <-  c(price_ske, price_kur, ga_ske, ga_kur, pg_cor, po_cor)
+data_3 <-  c(price_ske_3, price_kur_3, ga_ske_3, ga_kur_3, pg_cor_3, po_cor_3)
+df_result <-  data.frame('모든 데이터' = round(data_0,2), '이상치 제거 데이터' = round(data_3,2))
+rownames(df_result)=c('가격 왜도', '가격 첨도', '면적 왜도', '면적 첨도', '가격-면적 상관계수', '가격-등급 상관계수')
+df_result
+```
+
+#### 6. 결론
+
+
+최종결론 \
+**데이터 셋** \
+우리가 알고 있는 일반적인 지식이 가격을 예측하는데 유효하다.
+
+**정보** \
+이상치의 제거가 자료의 분포를 표준분포에 가깝게 만들어주지만 상관계수에는 \
+큰 영향력을 미치지 않는다는 사실을 알 수 있었다.\
+
+

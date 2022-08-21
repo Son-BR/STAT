@@ -1,0 +1,236 @@
+---
+title: "타이타닉 데이터 분석"
+author: "hwa"
+date: "2022-08-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+getwd()    # 작성중인 경로 확인
+```
+
+## 1. 준비 작업(데이터 전처리)
+### 1-1. 외부 데이터 불러오기(csv -> data.frame)
+
+```{r}
+df <- read.csv("./titanic/train.csv", header=T, 
+               na.strings = c("", " ", NA))    #문자열 불러올 때, NA 설정
+
+# 데이터 유형 및 내부구조 확인
+str(df)
+```
+
+* 컬럼(columns) 설명 
+
+PassengerId: 승객 번호
+survivied: 생존여부 (1: 생존, 0: 사망)
+pclass: 좌석 등급 (1등급, 2등급, 3등급)
+sex: 성별
+Age: 나이
+sibsp: 형제 + 배우자 수
+parch: 부모 + 자녀 수
+ticket: 티켓 번호
+fare: 좌석 요금
+cabin: 선실 이름
+embarked: 탑승 항구 (S, C, Q)
+
+
+### 1-2. 데이터 파악하기
+
+```{r}
+# 차원 확인(행/열)
+dim(df)
+
+# 요약 통계량
+summary(df)
+
+#데이터의 앞/뒷부분 6개씩 출력
+head(df)
+tail(df)
+```
+
+### 1-3. 변수 계산 및 생성
+```{r}
+df$Family <- df$SibSp + df$Parch
+```
+
+* SibSp(형제+배우자수)와 Parch(부모+자녀수) 변수를 통합 ==> **Family(동반가족수) 변수 생성**
+
+
+```{r}
+# 가족/혼자 변수 생성
+df$family_num <- cut(df$Family, breaks=c(-1,0.1,10), labels=c("alone","family"))
+table(df$family_num)  
+```
+
+```{r}
+# 연령대 변수 생성
+df$Age_group <- cut(df$Age, breaks=c(0,10,20,30,40,50,60,90),
+                    labels=c("0~9","10~19","20~29","30~39","40~49","50~59","over 60"))
+table(df$Age_group)  
+```
+
+
+### 1-4. 결측치 분포 확인하기
+
+```{r}
+library(VIM)
+aggr(df, numbers=T, prop=T)
+```
+
+* PassengerId(승객번호)와 ticket(티켓번호)은 고유값을 가짐 ==> 분석변수에서 제외
+* SibSp(형제+배우자수)와 Parch(부모+자녀수) 변수를 합하여 Family(동반가족수) 변수로 생성 ==> 분석변수에서 제외
+* cabin(선실이름) 결측값 687개(77%) ==> 분석변수에서 제외
+* Embarked(탑승항구) 결측값 2개(0.2%) ==> **샘플링**하여 결측치 대체
+* Age(나이) 결측값 177개(20%) ==> **결측치 제외** 후 연령별 분석 예정
+
+```{r}
+# 사용할 데이터만 추출
+titanic_df <- df[c(2,3,5,6,10,12,13,14,15)]
+
+set.seed(123)       # 랜덤적인 값을 고정
+
+# Embarked에서 샘플링하여 결측치 대체
+titanic_df$Embarked[is.na(titanic_df$Embarked)] <- sample(na.omit(titanic_df$Embarked), 2)
+#sum(is.na(titanic_df$Embarked))     # Embarked의 NA 갯수
+
+# 결측치 분포 확인
+aggr(titanic_df, numbers=T, prop=T)
+```
+
+### 1-5. 이상치 확인하기
+
+```{r}
+#str(titanic_df)
+
+par(mfrow=c(1,3))
+boxplot(Age ~ Survived, data=titanic_df, col=2:3)
+boxplot(Family ~ Survived, data=titanic_df, col=2:3)
+boxplot(Fare ~ Survived, data=titanic_df, col=2:3)
+```
+
+```{r}
+# Age(나이)의 이상치
+sort(boxplot.stats(titanic_df$Age)$out)
+```
+
+* Age(나이) 변수의 이상치 범위는 66세~80세 ==> 고령자도 크루즈 여행이 가능하다고 사료되어 **Age 이상치를 제거하지 않고 사용**
+
+
+```{r}
+# Family(동반가족수)의 이상치
+sort(boxplot.stats(titanic_df$Family)$out)
+```
+
+* Family(동반가족수) 변수의 이상치 범위는 3명~10명 ==> 대가족으로 크루즈 여행이 가능하다고 사료되어 **Family 이상치를 제거하지 않고 사용**
+
+
+```{r}
+# Fare(좌석 요금)의 이상치
+sort(round(boxplot.stats(titanic_df$Fare)$out,0))
+#summary(titanic_df[,7])   # 범위(최대-최소), 평균
+
+#좌석등급과 좌석요금의 관계성
+par(mfrow=c(1,1))
+boxplot(Fare ~ Pclass, data=titanic_df, col=2:4)
+
+aggregate(titanic_df[,c(7,1)],
+          by=list(Pclass=titanic_df$Pclass), FUN=mean)
+```
+
+* Fare(좌석 요금) 변수의 이상치 범위는 67~512임이고, Pclass(좌석 등급)과 관련성이 있음. 1등급일수록 요금이 비쌈 
+==> **독립변수로 Fare 대신 Pclass을 선택**
+
+혹은 좌석요금 이상치에 좌석등급별 평균값을 대체?!
+
+
+## 2. 데이터 탐색 및 시각화
+### 2-1. 수치형 변수의 데이터 탐색
+```{r}
+# 요약 통계량
+summary(titanic_df[,4:7])
+
+mean(titanic_df$Age, na.rm=T)    #평균 산출
+sd(titanic_df$Age, na.rm=T)     #표준편차 산출
+mean(titanic_df$Fare)     #평균 산출
+sd(titanic_df$Fare)      #표준편차 산출
+
+#히스토그램 작성
+par(mfrow=c(1,3))
+hist(titanic_df$Age, col=2, main='나이별 승객수', xlab='Age') 
+hist(titanic_df$Family, col=3, main='동반가족수별 승객수', xlab='Family')
+hist(titanic_df$Fare, col=4, main='좌석요금별 승객수', xlab='Fare')
+```
+
+### 2-2. 범주형 변수의 데이터 탐색
+```{r}
+#범주형 데이터 빈도수와 비율
+'생존여부'
+table(titanic_df$Survived) 
+round(prop.table(table(titanic_df$Survived)),2)
+
+'좌석등급'
+table(titanic_df$Pclass)  
+round(prop.table(table(titanic_df$Pclass)),2)
+
+'성별'
+table(titanic_df$Sex)  
+round(prop.table(table(titanic_df$Sex)),2)
+
+'탑승항구'
+table(titanic_df$Embarked)  
+round(prop.table(table(titanic_df$Embarked)),2)
+
+'가족동반'
+table(titanic_df$family_num)  
+round(prop.table(table(titanic_df$family_num)),2)
+
+'연령대'
+table(titanic_df$Age_group)  
+round(prop.table(table(titanic_df$Age_group)),2)
+```
+
+```{r}
+#막대그래프 작성
+par(mfrow=c(2,3))
+barplot(table(titanic_df$Survived), col=2, main='생존여부별 승객수', xlab='Survived')   
+barplot(table(titanic_df$Pclass), col=3, main='좌석등급별 승객수', xlab='Pclass')   
+barplot(table(titanic_df$Sex), col=4, main='성별 승객수', xlab='Sex')   
+barplot(table(titanic_df$Embarked), col=6, main='탑승항구별 승객수', xlab='Embarked')
+barplot(table(titanic_df$family_num), col=7, main='가족동반별 승객수', xlab='family_num')
+barplot(table(titanic_df$Age_group), col=5, main='연령대별 승객수', xlab='Age_group')
+```
+
+## 3-1. 유형별 생존여부
+
+```{r}
+par(mfrow=c(1,3))
+mosaicplot(Pclass ~ Survived, data=titanic_df, col = 2:3, main='승객등급별 생존여부')
+mosaicplot(Sex ~ Survived, data=titanic_df, col = 2:3, main='성별에 따른 생존여부')
+mosaicplot(Embarked ~ Survived, data=titanic_df, col = 2:3, main='탑승항구별 생존여부')
+
+par(mfrow=c(1,2))
+mosaicplot(family_num ~ Survived, data=titanic_df, col = 2:3, main='가족동반별 생존여부')
+mosaicplot(Age_group ~ Survived, data=titanic_df, col = 2:3, main='연령대별 생존여부')
+```
+
+
+## 3-2. 집단별로 평균 (=>생존율)
+```{r}
+aggregate(titanic_df$Survived,
+          by=list(Pclass=titanic_df$Pclass), FUN=mean)
+
+aggregate(titanic_df$Survived,
+          by=list(Sex=titanic_df$Sex), FUN=mean)
+
+aggregate(titanic_df$Survived,
+          by=list(Embarked=titanic_df$Embarked), FUN=mean)
+
+aggregate(titanic_df$Survived,
+          by=list(family_num=titanic_df$family_num), FUN=mean)
+
+aggregate(titanic_df$Survived,
+          by=list(Age_group=titanic_df$Age_group), FUN=mean)
+```
+

@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "about.qmd 제목",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "index.qmd 제목",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "NewQmd.html",
+    "href": "NewQmd.html",
+    "title": "New Qmd 제목",
+    "section": "",
+    "text": "lm(Petal.Length~Petal.Width, data=iris)\n\n\nCall:\nlm(formula = Petal.Length ~ Petal.Width, data = iris)\n\nCoefficients:\n(Intercept)  Petal.Width  \n      1.084        2.230"
+  }
+]

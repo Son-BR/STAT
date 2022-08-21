@@ -1,0 +1,209 @@
+---
+title: "BBJ_Loan payments anal"
+format: html
+editor: visual
+---
+
+| 변수명             | 해석(의미)                                       |
+|--------------------|--------------------------------------------------|
+| **Loan_ID**        | 대출한 고객의 고유한 ID                          |
+| **loan_status**    | 이번 분석의 타겟 변수, 상환 여부를 나타냄        |
+| **Principal**      | 고객이 대출받은 금액                             |
+| **terms**          | 기간                                             |
+| **effective_date** | 실제 계약 효과가 발휘하기 시작한 날짜            |
+| **due_date**       | 대출금 납부 기한 날짜                            |
+| **paid_off_time**  | 고객이 은행에 모두 상환한 날짜, 시간             |
+| **past_due_days**  | 고객이 은행에 대출금을 모두 상환하는데 걸린 기간 |
+| **age**            | 고객의 나이                                      |
+| **education**      | 고객의 교육 수준                                 |
+| **Gender**         | 고객의 성별                                      |
+
+### 데이터 전처리
+
+```{r}
+library(dplyr)  # Used for almost all data handling 
+
+loan.df <- read.csv('Loan payments data.csv')
+loan.df
+str(loan.df)
+
+cat("\n\n")
+
+# factor로 변환
+loan.df <- loan.df %>% 
+  mutate(Loan_ID = factor(Loan_ID), loan_status = factor(loan_status), effective_date = factor(effective_date),ndue_date = factor(due_date), paid_off_time = factor(paid_off_time), education = factor(education), Gender = factor(Gender))
+
+str(loan.df)
+
+cat("\n\n")
+
+# 결측치 확인
+library(VIM) # Missing values processing, aagr()
+aggr(loan.df, prop = F, combined = T, numbers = T, sorVars = T, sortCombs = T)
+
+# 필요한 데이터만 추출
+library(lubridate) # Time series data Pre-processing, mdy()
+loan.df <- loan.df %>% 
+  select("loan_status", "Principal", "terms", 
+         "effective_date", "due_date", "age", "education", "Gender") %>% 
+  # 종속 변수인 loan_status를 성공과 실패, 2개 범주로 변환 
+  mutate(loan_status = factor(ifelse(loan_status == "PAIDOFF", 
+                                     "Success", "Failure")), 
+         effective_date = mdy(effective_date), 
+         due_date = mdy(due_date))
+
+str(loan.df)
+
+```
+
+### EDA
+
+```{r}
+# 수치형 자료 산점도, boxplot
+# 범주형 자료 barplot, table
+
+# pairs.panels(df)  
+# library(corrgram)  
+# corrgram(df, order = T, lower.panel= '', upper.panel = 'panel.pie') 
+
+par(mfrow = c(2, 2))
+# 연령
+boxplot(loan.df$age, col = 'tomato', main = '연령')
+# 대출원금
+boxplot(loan.df$Principal, col = 'blue', main = '대출원금')
+# 기간
+boxplot(loan.df$terms, col = 'yellow', main = '기간')
+par(mfrow = c(1, 1))
+
+
+par(mfrow = c(2, 2))
+# 대출상환 상태
+barplot(table(loan.df$loan_status), col = rainbow(2), 
+        main = '대출상환 상태')
+# 성별
+barplot(table(loan.df$Gender), col = c(3, 4), 
+        main = '성별')
+# 최종 학력
+barplot(table(loan.df$education), col = c(3:6), beside = T, 
+        main = '최종 학력')
+par(mfrow = c(1, 1))
+
+
+par(mfrow = c(2, 2))
+# 대출금 별 대출상환 여부는 어떠한가?
+with(loan.df, barplot(table(loan_status, Principal), 
+        col=rainbow(2), beside = T, 
+        main = '대출금 별 대출상환 여부'
+        , xlab = 'Principal', ylab = 'count'))
+legend('topleft', legend = c("Success", "Failure"), 
+       fill = rainbow(2))
+
+# 최종학력별 대출상환 여부는 어떠한가?
+with(loan.df, barplot(table(loan_status, Gender), col = rainbow(2), beside = T, main = '대출상환별 성 비율'))
+legend('topleft', legend = c("Success", "Failure"), fill = rainbow(2))
+
+# 최종학력별 대출상환 여부는 어떠한가?
+with(loan.df, barplot(table(loan_status, education), col = rainbow(2), beside = T, main = '최종학력별 대출상환 여부'))
+legend('bottom', legend = c("Success", "Failure"), fill = rainbow(2))
+par(mfrow = c(1, 1))
+```
+
+## 로지스틱 이항분석 : 대출상환 성공인가, 실패인가?
+
+=\> 전체를 training data로 잡았을 때
+
+```{r}
+status <- loan.df$loan_status
+model <- glm(status ~ ., data = loan.df,
+             family = binomial(link = "logit"))
+
+pred <- factor(ifelse(
+  model$fitted.values > 0.5, "pred-Success", "pred-Failure")) # 예측값
+
+tab <- table(status, pred)
+tab
+
+TP <- tab[2, 2] # True, Positive
+TN <- tab[1, 1]
+FP <- tab[2, 1]
+FN <- tab[1, 2] # False, Negative
+
+# 분류 모델의 성능 평가 지표: Evaluation Metric
+accuracy <- (TP + TN) / (TP + TN + FP + FN) # 정확도
+accuracy
+
+precision <- TP / (TP + FP) # 정밀도
+precision
+
+recall <- TP / (TP + FN) # 재현율
+recall
+
+library(pROC)
+roc(status ~ model$fitted.values, data = loan.df,
+    plot = TRUE, main = "ROC CURVE", col = 'pink')
+```
+
+### Trainging Test 분할 : 객관적인 평가를 위해
+
+```{r}
+# 80 : 20 비율 -> 400개 : 100개
+# "loan_status", "Principal", "terms", "effective_date", "due_date", "age", "education", "Gender"
+
+set.seed(7)
+test_index <- sample(1:500, 100, replace = F) # 1 ~ 500 중 100개, replace = F : 중복추출 X
+train <- loan.df[-test_index,]
+test <- loan.df[test_index,]
+
+str(train)
+str(test)
+
+model <- glm(loan_status ~ ., data = train,
+             family = binomial(link = "logit"))
+
+# test[, -dim(test)[1]] : loan_status 뺀 것
+
+pred <- factor(ifelse(
+  predict(model, test[,-dim(test)[1]], type = 'response') > 0.5, "pred-Success",
+  "pred-Failure")) # 예측값
+# response를 반환값으로 받음.
+
+library(pROC)
+roc(test$loan_status ~ predict(model, test[, -dim(test)[1]], type = 'response'),
+    plot = TRUE, main = "ROC CURVE", col = 'pink', print.auc = T) 
+```
+
+```{r}
+summary(model)
+
+# 오즈비 (odds ratio)
+# 일어날 확률(p) / 일어나지 않을 확률(1-p)
+
+```
+
+### 혼동행렬
+
+```{r}
+
+tab <- table(test$loan_status, pred)
+tab
+
+TP <- tab[2, 2] # True, Positive
+TN <- tab[1, 1]
+FP <- tab[2, 1]
+FN <- tab[1, 2] # False, Negative
+
+# 분류 모델의 성능 평가 지표: Evaluation Metric
+accuracy <- (TP + TN) / (TP + TN + FP + FN) # 정확도
+accuracy
+
+precision <- TP / (TP + FP) # 정밀도
+precision
+
+recall <- TP / (TP + FN) # 재현율
+recall
+```
+
+
+
+
+

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>team4_Blue – sbr_ds_salary</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">team4_Blue</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./../index.qmd">
+ </a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">data list</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./NJH_dia.html">DIAMOND_NJH</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Jaewon_car_price.html">Jaewon_car_price</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./BBJ_Loan payments.html">BBJ_Loan payments anal</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./SleepStudy.html">SleepStudy</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./SBR_ds_Salary.html" aria-current="page">데이터 사이언스 직군의 급여 분석</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#데이터-사이언스-직군의-급여-분석" id="toc-데이터-사이언스-직군의-급여-분석" class="nav-link active" data-scroll-target="#데이터-사이언스-직군의-급여-분석">데이터 사이언스 직군의 급여 분석</a>
+  <ul class="collapse">
+  <li><a href="#종속변수" id="toc-종속변수" class="nav-link" data-scroll-target="#종속변수">1. 종속변수</a></li>
+  <li><a href="#독립변수" id="toc-독립변수" class="nav-link" data-scroll-target="#독립변수">2. 독립변수</a></li>
+  <li><a href="#분석내용" id="toc-분석내용" class="nav-link" data-scroll-target="#분석내용">3. 분석내용</a>
+  <ul class="collapse">
+  <li><a href="#데이터-전처리" id="toc-데이터-전처리" class="nav-link" data-scroll-target="#데이터-전처리">3.1 데이터 전처리</a></li>
+  <li><a href="#salary_in_usd연봉" id="toc-salary_in_usd연봉" class="nav-link" data-scroll-target="#salary_in_usd연봉">3.2 salary_in_usd(연봉)</a></li>
+  <li><a href="#work_year급여-연도" id="toc-work_year급여-연도" class="nav-link" data-scroll-target="#work_year급여-연도">3.3 work_year(급여 연도)</a></li>
+  <li><a href="#experience_level직급" id="toc-experience_level직급" class="nav-link" data-scroll-target="#experience_level직급">3.4 experience_level(직급)</a></li>
+  <li><a href="#remote_ratio재택근무-비율" id="toc-remote_ratio재택근무-비율" class="nav-link" data-scroll-target="#remote_ratio재택근무-비율">3.5 remote_ratio(재택근무 비율)</a></li>
+  <li><a href="#company_size회사-규모" id="toc-company_size회사-규모" class="nav-link" data-scroll-target="#company_size회사-규모">3.6 company_size(회사 규모)</a></li>
+  <li><a href="#사후분석" id="toc-사후분석" class="nav-link" data-scroll-target="#사후분석">4. 사후분석</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론">5. 결론</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="데이터-사이언스-직군의-급여-분석" class="level1">
+<h1>데이터 사이언스 직군의 급여 분석</h1>
+<p>데이터 출처 : https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries</p>
+<section id="종속변수" class="level2">
+<h2 class="anchored" data-anchor-id="종속변수">1. 종속변수</h2>
+<ul>
+<li>salary_in_usd : 달러화로 환산된 연봉</li>
+</ul>
+</section>
+<section id="독립변수" class="level2">
+<h2 class="anchored" data-anchor-id="독립변수">2. 독립변수</h2>
+<ul>
+<li>work_year, experience_level, employment_type, job_title, remote_ratio, company_size</li>
+</ul>
+</section>
+<section id="분석내용" class="level2">
+<h2 class="anchored" data-anchor-id="분석내용">3. 분석내용</h2>
+<section id="데이터-전처리" class="level3">
+<h3 class="anchored" data-anchor-id="데이터-전처리">3.1 데이터 전처리</h3>
+<ul>
+<li>데이터 불러오기</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ds_salaries.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   607 obs. of  12 variables:
+ $ X                 : int  0 1 2 3 4 5 6 7 8 9 ...
+ $ work_year         : int  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...
+ $ experience_level  : chr  "MI" "SE" "SE" "MI" ...
+ $ employment_type   : chr  "FT" "FT" "FT" "FT" ...
+ $ job_title         : chr  "Data Scientist" "Machine Learning Scientist" "Big Data Engineer" "Product Data Analyst" ...
+ $ salary            : int  70000 260000 85000 20000 150000 72000 190000 11000000 135000 125000 ...
+ $ salary_currency   : chr  "EUR" "USD" "GBP" "USD" ...
+ $ salary_in_usd     : int  79833 260000 109024 20000 150000 72000 190000 35735 135000 125000 ...
+ $ employee_residence: chr  "DE" "JP" "GB" "HN" ...
+ $ remote_ratio      : int  0 0 50 0 50 100 100 50 100 50 ...
+ $ company_location  : chr  "DE" "JP" "GB" "HN" ...
+ $ company_size      : chr  "L" "S" "M" "S" ...</code></pre>
+</div>
+</div>
+<ul>
+<li>필요없는 열 제거</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   607 obs. of  7 variables:
+ $ work_year       : int  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...
+ $ experience_level: chr  "MI" "SE" "SE" "MI" ...
+ $ employment_type : chr  "FT" "FT" "FT" "FT" ...
+ $ job_title       : chr  "Data Scientist" "Machine Learning Scientist" "Big Data Engineer" "Product Data Analyst" ...
+ $ salary_in_usd   : int  79833 260000 109024 20000 150000 72000 190000 35735 135000 125000 ...
+ $ remote_ratio    : int  0 0 50 0 50 100 100 50 100 50 ...
+ $ company_size    : chr  "L" "S" "M" "S" ...</code></pre>
+</div>
+</div>
+<ul>
+<li>결측치 확인</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<ul>
+<li>employment_type(고용형태)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>employment_type), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>CT(계약직), FL(프리랜서): 안정적인 수입이라 보기 어려움</li>
+<li>PT(파트타임): 노동 시간이 달라 수입의 단순 비교 어려움</li>
+<li>고용형태 FT인 행만 남기고 employment_type열 제거</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>employment_type<span class="sc">==</span><span class="st">"FT"</span>, <span class="sc">-</span><span class="dv">3</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   588 obs. of  6 variables:
+ $ work_year       : int  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...
+ $ experience_level: chr  "MI" "SE" "SE" "MI" ...
+ $ job_title       : chr  "Data Scientist" "Machine Learning Scientist" "Big Data Engineer" "Product Data Analyst" ...
+ $ salary_in_usd   : int  79833 260000 109024 20000 150000 72000 190000 35735 135000 125000 ...
+ $ remote_ratio    : int  0 0 50 0 50 100 100 50 100 50 ...
+ $ company_size    : chr  "L" "S" "M" "S" ...</code></pre>
+</div>
+</div>
+</section>
+<section id="salary_in_usd연봉" class="level3">
+<h3 class="anchored" data-anchor-id="salary_in_usd연봉">3.2 salary_in_usd(연봉)</h3>
+<section id="통계량-파악" class="level4">
+<h4 class="anchored" data-anchor-id="통계량-파악">3.2.1 통계량 파악</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>salary_in_usd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2859   64962  104197  113468  150000  600000 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(df<span class="sc">$</span>salary_in_usd, <span class="at">col=</span><span class="st">'skyblue'</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>salary_in_usd, <span class="at">col=</span><span class="st">'skyblue'</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Salary($)"</span>, <span class="at">ylab=</span><span class="st">"Frequency"</span>, <span class="at">main=</span><span class="st">"Frequency of Salary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="정규성-평가" class="level4">
+<h4 class="anchored" data-anchor-id="정규성-평가">3.2.2 정규성 평가</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(df<span class="sc">$</span>salary_in_usd, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">'skyblue'</span>, <span class="at">id=</span>F, <span class="at">main=</span><span class="st">"Q-Q Plot"</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">ylab =</span> <span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(df<span class="sc">$</span>salary_in_usd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  df$salary_in_usd
+W = 0.90066, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 귀무가설 기각</li>
+<li>연봉은 정규성을 따르지 않음</li>
+</ul>
+</section>
+</section>
+<section id="work_year급여-연도" class="level3">
+<h3 class="anchored" data-anchor-id="work_year급여-연도">3.3 work_year(급여 연도)</h3>
+<section id="빈도" class="level4">
+<h4 class="anchored" data-anchor-id="빈도">3.3.1 빈도</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>work_year <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>work_year)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>work_year), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="연도별-분산의-동일성-검정" class="level4">
+<h4 class="anchored" data-anchor-id="연도별-분산의-동일성-검정">3.3.2 연도별 분산의 동일성 검정</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>work_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group   2  1.6388 0.1951
+      585               </code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 각 연도별 연봉은 등분산성을 가짐</li>
+</ul>
+</section>
+<section id="연도별-평균-연봉" class="level4">
+<h4 class="anchored" data-anchor-id="연도별-평균-연봉">3.3.3 연도별 평균 연봉</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">tapply</span>(df<span class="sc">$</span>salary_in_usd, df<span class="sc">$</span>work_year, mean), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="연봉-연도-일원분산분석" class="level4">
+<h4 class="anchored" data-anchor-id="연봉-연도-일원분산분석">3.3.4 연봉-연도 일원분산분석</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>year.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>work_year)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(year.aov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df    Sum Sq   Mean Sq F value   Pr(&gt;F)    
+df$work_year   2 9.286e+10 4.643e+10   9.911 5.85e-05 ***
+Residuals    585 2.741e+12 4.685e+09                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 연도별 연봉의 차이는 존재</li>
+</ul>
+</section>
+</section>
+<section id="experience_level직급" class="level3">
+<h3 class="anchored" data-anchor-id="experience_level직급">3.4 experience_level(직급)</h3>
+<section id="빈도-1" class="level4">
+<h4 class="anchored" data-anchor-id="빈도-1">3.4.1 빈도</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>experience_level <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>experience_level)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>experience_level), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="직급별-분산의-동일성-검정" class="level4">
+<h4 class="anchored" data-anchor-id="직급별-분산의-동일성-검정">3.4.2 직급별 분산의 동일성 검정</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>experience_level)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(&gt;F)    
+group   3  5.6988 0.0007533 ***
+      584                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 각 연도별 연봉은 등분산성가정을 따르지 않음</li>
+</ul>
+</section>
+<section id="직급별-평균-연봉" class="level4">
+<h4 class="anchored" data-anchor-id="직급별-평균-연봉">3.4.3 직급별 평균 연봉</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">tapply</span>(df<span class="sc">$</span>salary_in_usd, df<span class="sc">$</span>experience_level, mean), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200000</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="연봉-직급-일원분산분석" class="level4">
+<h4 class="anchored" data-anchor-id="연봉-직급-일원분산분석">3.4.4 연봉-직급 일원분산분석</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>experience_level)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  df$salary_in_usd and df$experience_level
+F = 62.426, num df = 3.000, denom df = 96.392, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 직급별 연봉의 차이는 존재</li>
+</ul>
+</section>
+</section>
+<section id="remote_ratio재택근무-비율" class="level3">
+<h3 class="anchored" data-anchor-id="remote_ratio재택근무-비율">3.5 remote_ratio(재택근무 비율)</h3>
+<section id="빈도-2" class="level4">
+<h4 class="anchored" data-anchor-id="빈도-2">3.5.1 빈도</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>remote_ratio <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>remote_ratio, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>),</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"ST"</span>, <span class="st">"All"</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>remote_ratio), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">400</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="재택근무-비율별-분산의-동일성-검정" class="level4">
+<h4 class="anchored" data-anchor-id="재택근무-비율별-분산의-동일성-검정">3.5.2 재택근무 비율별 분산의 동일성 검정</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>remote_ratio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value  Pr(&gt;F)  
+group   2  4.0749 0.01748 *
+      585                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 재택근무 빈도별 연봉은 등분산성가정을 따르지 않음</li>
+<li>유의수준 0.01에서는 등분산 가정을 따름</li>
+</ul>
+</section>
+<section id="재택근무-비율별-평균-연봉" class="level4">
+<h4 class="anchored" data-anchor-id="재택근무-비율별-평균-연봉">3.5.3 재택근무 비율별 평균 연봉</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">tapply</span>(df<span class="sc">$</span>salary_in_usd, df<span class="sc">$</span>remote_ratio, mean), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="연봉-재택근무-비율-일원분산분석" class="level4">
+<h4 class="anchored" data-anchor-id="연봉-재택근무-비율-일원분산분석">3.5.4 연봉-재택근무 비율 일원분산분석</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>rem.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>remote_ratio)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rem.aov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Df    Sum Sq   Mean Sq F value   Pr(&gt;F)    
+df$remote_ratio   2 1.155e+11 5.773e+10   12.43 5.19e-06 ***
+Residuals       585 2.718e+12 4.646e+09                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 재택근무 비율별 연봉의 차이는 존재</li>
+</ul>
+</section>
+</section>
+<section id="company_size회사-규모" class="level3">
+<h3 class="anchored" data-anchor-id="company_size회사-규모">3.6 company_size(회사 규모)</h3>
+<section id="빈도-3" class="level4">
+<h4 class="anchored" data-anchor-id="빈도-3">3.6.1 빈도</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>company_size <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>company_size)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>company_size), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">350</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="회사-규모별-분산의-동일성-검정" class="level4">
+<h4 class="anchored" data-anchor-id="회사-규모별-분산의-동일성-검정">3.6.2 회사 규모별 분산의 동일성 검정</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>company_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(&gt;F)    
+group   2  8.3059 0.0002774 ***
+      585                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 회사 규모별 연봉은 등분산성가정을 따르지 않음</li>
+</ul>
+</section>
+<section id="회사-규모별-평균-연봉" class="level4">
+<h4 class="anchored" data-anchor-id="회사-규모별-평균-연봉">3.6.3 회사 규모별 평균 연봉</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">tapply</span>(df<span class="sc">$</span>salary_in_usd, df<span class="sc">$</span>company_size, mean), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="연봉-회사규모-일원분산분석" class="level4">
+<h4 class="anchored" data-anchor-id="연봉-회사규모-일원분산분석">3.6.4 연봉-회사규모 일원분산분석</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>company_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  df$salary_in_usd and df$company_size
+F = 20.902, num df = 2.00, denom df = 213.86, p-value = 5.114e-09</code></pre>
+</div>
+</div>
+<ul>
+<li>유의수준 0.05에서 재택근무 비율별 연봉의 차이는 존재</li>
+</ul>
+</section>
+</section>
+<section id="사후분석" class="level3">
+<h3 class="anchored" data-anchor-id="사후분석">4. 사후분석</h3>
+<section id="연도" class="level4">
+<h4 class="anchored" data-anchor-id="연도">4.1 연도</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(year.aov))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="직급" class="level4">
+<h4 class="anchored" data-anchor-id="직급">4.2 직급</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lev.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>experience_level)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(lev.aov),<span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="재택근부-비율" class="level4">
+<h4 class="anchored" data-anchor-id="재택근부-비율">4.3 재택근부 비율</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(rem.aov), <span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="회사-규모" class="level4">
+<h4 class="anchored" data-anchor-id="회사-규모">4.4 회사 규모</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>comp.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>salary_in_usd <span class="sc">~</span> df<span class="sc">$</span>company_size)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(comp.aov),<span class="at">las=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SBR_ds_Salary_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="결론" class="level3">
+<h3 class="anchored" data-anchor-id="결론">5. 결론</h3>
+<p><span style="color:tomato">연봉 2022년 올랐음</span><br>
+<span style="color:tomato">직급별 차이 물론 존재</span><br>
+<span style="color:tomato">재택근무 All-No는 통계적으로 유의미한 차이X</span><br>
+<span style="color:tomato">때때로 재택근무하는 사람의 연봉은 All, No에 비해 낮음</span><br>
+<span style="color:tomato">회사규모 M-L 통계적으로 차이X</span><br>
+</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

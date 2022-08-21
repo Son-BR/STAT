@@ -1,0 +1,18 @@
+---
+title: "team4_Blue"
+---
+
+<h2 calss = 'header'>조원 소개</h2> 
+
+<div class = 'teamtext'>
+정한수 : 조장  
+남재환 : 다이아몬드 가격 예측   
+박병준 : 대출 상환 성패 여부 분석   
+손병립 : 데이터 사이언스 분야 급여 분석    
+신민수 : 수면 시간 관련 조사 자료 분석및 예측  
+임재원 : 중고차 가격 예측  
+</div>
+
+
+<a href =  "https://github.com/blueberrysmoooothie/team4_Blue">
+Our team project code is on this Github Repositories</a>

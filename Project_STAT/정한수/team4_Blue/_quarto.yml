@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "team4_Blue"
+  navbar:
+    left:
+      - href: ../index.qmd
+      - about.qmd
+      - NJH_dia.qmd
+      - Jaewon_car_price.qmd
+      - BBJ_Loan payments.qmd
+      - SleepStudy.qmd
+      - SBR_ds_Salary.qmd
+      
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

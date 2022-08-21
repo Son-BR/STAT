@@ -1,0 +1,11 @@
+---
+title: "New Qmd 제목"
+---
+
+New Qmd 내용
+
+```{r}
+lm(Petal.Length~Petal.Width, data=iris)
+```
+
+

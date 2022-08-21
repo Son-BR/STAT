@@ -1,0 +1,195 @@
+---
+title: "DIAMOND_NJH"
+editor: visual
+---
+
+### 다이아파일 불러오기
+
+```{r}
+
+DIA1 <- read.csv("../남재환/diamonds.csv", header = T)
+#str(DIA1)
+```
+
+### 범주형 변수로 만들기
+
+```{r}
+
+levels(factor(DIA1$cut))
+f.cut = factor(DIA1$cut, levels = c('Fair','Good','Very Good','Premium','Ideal'))
+DIA1$cut=f.cut
+
+levels(factor(DIA1$color))
+f.color = factor(DIA1$color, levels = c('J','I','H','G','F','E','D'))
+DIA1$color=f.color
+
+levels(factor(DIA1$clarity))
+f.clarity = factor(DIA1$clarity, levels = c('IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1'))
+DIA1$clarity=f.clarity
+str(DIA1)
+```
+
+### cut 더미변수 만들기
+
+```{r}
+
+levels(DIA1$cut)
+tapply(DIA1$price, DIA1$cut, mean)
+
+cuts.lm <- lm(price ~ cut, data = DIA1)
+summary(cuts.lm)
+#contrasts(DIA1$cut)
+
+#color 더미변수 만들기
+levels(DIA1$color)
+tapply(DIA1$price, DIA1$color, mean)
+
+colors.lm <- lm(price ~ color, data = DIA1)
+summary(colors.lm)
+#contrasts(DIA1$color)
+
+#clarity 더미변수 만들기
+levels(DIA1$clarity)
+tapply(DIA1$price, DIA1$clarity, mean)
+
+claritys.lm <- lm(price ~ clarity, data = DIA1)
+summary(colors.lm)
+#contrasts(DIA1$clarity)
+#str(DIA1)
+```
+
+### 가격과 캐럿의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+plot(price ~ carat, data = df, pch = 19, col = "steelblue")
+
+
+formula <- price ~ carat
+model <- lm(price ~ carat, data = df)
+model
+abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 세공의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+plot(price ~ cut, data = df, pch = 19, col = "skyblue")
+
+formula <- price ~ cut
+model <- lm(price ~ cut, data = df)
+model
+summary(model)
+```
+
+### 가격과 투명도의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ clarity, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ clarity
+model <- lm(price ~ clarity, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 색상의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ color, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ color
+model <- lm(price ~ color, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 캐럿,투명도의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ carat+clarity, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ carat+clarity
+model <- lm(price ~ carat+clarity, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 캐럿,세공의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ carat+cut, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ carat+cut
+model <- lm(price ~ carat+cut, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 캐럿,색상의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ carat+color, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ carat+color
+model <- lm(price ~ carat+color, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+### 가격과 캐럿,투명도,세공, 색상의 관계
+
+```{r}
+
+str(DIA1)
+df <- DIA1
+
+plot(price ~ carat+clarity+cut+color, data = df, pch = 19, col = "steelblue")
+
+formula <- price ~ carat+clarity+cut+color
+model <- lm(price ~ carat+clarity+cut+color, data = df)
+#model
+#abline(model, lwd=2, col='tomato')
+summary(model)
+```
+
+```{r}
+library(gplots)
+str(DIA1)
+df <- DIA1
+boxplot(price ~ clarity,data = df)
+boxplot(price ~ cut, data = df)
+boxplot(price ~ color, data = df)
+
+```

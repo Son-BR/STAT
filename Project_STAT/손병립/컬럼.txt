@@ -1,0 +1,25 @@
+"X" 넘버
+"work_year" 급여연도
+
+"experience_level" 숙련도 
+"EN" Entry-level 입문
+"MI" Mid-level 중급
+"SE" Senior-level 고위급
+"EX" Executive-level 임원급
+
+"employment_type" 
+"FT" full time
+"CT" contract 계약직
+"PT" part time
+"FL" freelance
+
+"job_title" 직업
+"salary" 급여(연봉)
+"salary_currency" 급여 통화
+"salary_in_usd" 달러환전
+"employee_residence" 직원거주국가
+"remote_ratio" 재택근무비율
+"company_location" 본사위치국가
+
+"company_size"  회사규모
+연간 평균 근무인원 : S 50인 미만(소) M 50~250인(중) L 250인 이상(대)

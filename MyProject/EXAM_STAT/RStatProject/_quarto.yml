@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "ymlTitle"
+  navbar:
+    left:
+      - href: index.qmd
+        text: .yml_text에 작성
+      - about.qmd
+      - NewQmd.qmd
+     
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

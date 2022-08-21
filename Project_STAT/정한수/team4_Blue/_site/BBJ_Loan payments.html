@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>team4_Blue - BBJ_Loan payments anal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">team4_Blue</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./../index.qmd">
+ </a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">data list</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./NJH_dia.html">DIAMOND_NJH</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Jaewon_car_price.html">Jaewon_car_price</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./BBJ_Loan payments.html" aria-current="page">BBJ_Loan payments anal</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./SleepStudy.html">SleepStudy</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./SBR_ds_Salary.html">데이터 사이언스 직군의 급여 분석</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#데이터-전처리" id="toc-데이터-전처리" class="nav-link active" data-scroll-target="#데이터-전처리">데이터 전처리</a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
+  <li><a href="#로지스틱-이항분석-대출상환-성공인가-실패인가" id="toc-로지스틱-이항분석-대출상환-성공인가-실패인가" class="nav-link" data-scroll-target="#로지스틱-이항분석-대출상환-성공인가-실패인가">로지스틱 이항분석 : 대출상환 성공인가, 실패인가?</a>
+  <ul class="collapse">
+  <li><a href="#trainging-test-분할-객관적인-평가를-위해" id="toc-trainging-test-분할-객관적인-평가를-위해" class="nav-link" data-scroll-target="#trainging-test-분할-객관적인-평가를-위해">Trainging Test 분할 : 객관적인 평가를 위해</a></li>
+  <li><a href="#혼동행렬" id="toc-혼동행렬" class="nav-link" data-scroll-target="#혼동행렬">혼동행렬</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BBJ_Loan payments anal</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<table class="table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>변수명</th>
+<th>해석(의미)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Loan_ID</strong></td>
+<td>대출한 고객의 고유한 ID</td>
+</tr>
+<tr class="even">
+<td><strong>loan_status</strong></td>
+<td>이번 분석의 타겟 변수, 상환 여부를 나타냄</td>
+</tr>
+<tr class="odd">
+<td><strong>Principal</strong></td>
+<td>고객이 대출받은 금액</td>
+</tr>
+<tr class="even">
+<td><strong>terms</strong></td>
+<td>기간</td>
+</tr>
+<tr class="odd">
+<td><strong>effective_date</strong></td>
+<td>실제 계약 효과가 발휘하기 시작한 날짜</td>
+</tr>
+<tr class="even">
+<td><strong>due_date</strong></td>
+<td>대출금 납부 기한 날짜</td>
+</tr>
+<tr class="odd">
+<td><strong>paid_off_time</strong></td>
+<td>고객이 은행에 모두 상환한 날짜, 시간</td>
+</tr>
+<tr class="even">
+<td><strong>past_due_days</strong></td>
+<td>고객이 은행에 대출금을 모두 상환하는데 걸린 기간</td>
+</tr>
+<tr class="odd">
+<td><strong>age</strong></td>
+<td>고객의 나이</td>
+</tr>
+<tr class="even">
+<td><strong>education</strong></td>
+<td>고객의 교육 수준</td>
+</tr>
+<tr class="odd">
+<td><strong>Gender</strong></td>
+<td>고객의 성별</td>
+</tr>
+</tbody>
+</table>
+<section id="데이터-전처리" class="level3">
+<h3 class="anchored" data-anchor-id="데이터-전처리">데이터 전처리</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># Used for almost all data handling </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>loan.df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'Loan payments data.csv'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(loan.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Loan_ID loan_status Principal terms effective_date  due_date
+1 xqd20166231     PAIDOFF      1000    30       9/8/2016 10/7/2016
+2 xqd20168902     PAIDOFF      1000    30       9/8/2016 10/7/2016
+3 xqd20160003     PAIDOFF      1000    30       9/8/2016 10/7/2016
+4 xqd20160004     PAIDOFF      1000    15       9/8/2016 9/22/2016
+5 xqd20160005     PAIDOFF      1000    30       9/9/2016 10/8/2016
+6 xqd20160706     PAIDOFF       300     7       9/9/2016 9/15/2016
+    paid_off_time past_due_days age            education Gender
+1 9/14/2016 19:31            NA  45 High School or Below   male
+2  10/7/2016 9:00            NA  50             Bechalor female
+3 9/25/2016 16:58            NA  33             Bechalor female
+4 9/22/2016 20:00            NA  27              college   male
+5 9/23/2016 21:36            NA  28              college female
+6  9/9/2016 13:45            NA  35      Master or Above   male</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(loan.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   500 obs. of  11 variables:
+ $ Loan_ID       : chr  "xqd20166231" "xqd20168902" "xqd20160003" "xqd20160004" ...
+ $ loan_status   : chr  "PAIDOFF" "PAIDOFF" "PAIDOFF" "PAIDOFF" ...
+ $ Principal     : int  1000 1000 1000 1000 1000 300 1000 1000 1000 800 ...
+ $ terms         : int  30 30 30 15 30 7 30 30 30 15 ...
+ $ effective_date: chr  "9/8/2016" "9/8/2016" "9/8/2016" "9/8/2016" ...
+ $ due_date      : chr  "10/7/2016" "10/7/2016" "10/7/2016" "9/22/2016" ...
+ $ paid_off_time : chr  "9/14/2016 19:31" "10/7/2016 9:00" "9/25/2016 16:58" "9/22/2016 20:00" ...
+ $ past_due_days : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ age           : int  45 50 33 27 28 35 29 36 28 26 ...
+ $ education     : chr  "High School or Below" "Bechalor" "Bechalor" "college" ...
+ $ Gender        : chr  "male" "female" "female" "male" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># factor로 변환</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>loan.df <span class="ot">&lt;-</span> loan.df <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Loan_ID =</span> <span class="fu">factor</span>(Loan_ID), <span class="at">loan_status =</span> <span class="fu">factor</span>(loan_status), <span class="at">effective_date =</span> <span class="fu">factor</span>(effective_date),<span class="at">ndue_date =</span> <span class="fu">factor</span>(due_date), <span class="at">paid_off_time =</span> <span class="fu">factor</span>(paid_off_time), <span class="at">education =</span> <span class="fu">factor</span>(education), <span class="at">Gender =</span> <span class="fu">factor</span>(Gender))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(loan.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   500 obs. of  12 variables:
+ $ Loan_ID       : Factor w/ 500 levels "xqd12160159",..: 472 474 5 6 7 470 8 9 471 10 ...
+ $ loan_status   : Factor w/ 3 levels "COLLECTION","COLLECTION_PAIDOFF",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ Principal     : int  1000 1000 1000 1000 1000 300 1000 1000 1000 800 ...
+ $ terms         : int  30 30 30 15 30 7 30 30 30 15 ...
+ $ effective_date: Factor w/ 7 levels "9/10/2016","9/11/2016",..: 6 6 6 6 7 7 7 7 7 1 ...
+ $ due_date      : chr  "10/7/2016" "10/7/2016" "10/7/2016" "9/22/2016" ...
+ $ paid_off_time : Factor w/ 321 levels "","10/1/2016 10:18",..: 171 101 254 211 223 321 99 87 108 234 ...
+ $ past_due_days : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ age           : int  45 50 33 27 28 35 29 36 28 26 ...
+ $ education     : Factor w/ 4 levels "Bechalor","college",..: 3 1 1 2 2 4 2 2 2 2 ...
+ $ Gender        : Factor w/ 2 levels "female","male": 2 1 1 2 1 2 2 2 2 2 ...
+ $ ndue_date     : Factor w/ 25 levels "10/10/2016","10/11/2016",..: 7 7 7 19 8 14 8 8 8 21 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 결측치 확인</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM) <span class="co"># Missing values processing, aagr()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: colorspace</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: grid</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>VIM is ready to use.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Suggestions and bug-reports can be submitted at: https://github.com/statistikat/VIM/issues</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'VIM'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:datasets':
+
+    sleep</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(loan.df, <span class="at">prop =</span> F, <span class="at">combined =</span> T, <span class="at">numbers =</span> T, <span class="at">sorVars =</span> T, <span class="at">sortCombs =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 필요한 데이터만 추출</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate) <span class="co"># Time series data Pre-processing, mdy()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>loan.df <span class="ot">&lt;-</span> loan.df <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"loan_status"</span>, <span class="st">"Principal"</span>, <span class="st">"terms"</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"effective_date"</span>, <span class="st">"due_date"</span>, <span class="st">"age"</span>, <span class="st">"education"</span>, <span class="st">"Gender"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 종속 변수인 loan_status를 성공과 실패, 2개 범주로 변환 </span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">loan_status =</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(loan_status <span class="sc">==</span> <span class="st">"PAIDOFF"</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Success"</span>, <span class="st">"Failure"</span>)), </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">effective_date =</span> <span class="fu">mdy</span>(effective_date), </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">due_date =</span> <span class="fu">mdy</span>(due_date))</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(loan.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   500 obs. of  8 variables:
+ $ loan_status   : Factor w/ 2 levels "Failure","Success": 2 2 2 2 2 2 2 2 2 2 ...
+ $ Principal     : int  1000 1000 1000 1000 1000 300 1000 1000 1000 800 ...
+ $ terms         : int  30 30 30 15 30 7 30 30 30 15 ...
+ $ effective_date: Date, format: "2016-09-08" "2016-09-08" ...
+ $ due_date      : Date, format: "2016-10-07" "2016-10-07" ...
+ $ age           : int  45 50 33 27 28 35 29 36 28 26 ...
+ $ education     : Factor w/ 4 levels "Bechalor","college",..: 3 1 1 2 2 4 2 2 2 2 ...
+ $ Gender        : Factor w/ 2 levels "female","male": 2 1 1 2 1 2 2 2 2 2 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="eda" class="level3">
+<h3 class="anchored" data-anchor-id="eda">EDA</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 수치형 자료 산점도, boxplot</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 범주형 자료 barplot, table</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pairs.panels(df)  </span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># library(corrgram)  </span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># corrgram(df, order = T, lower.panel= '', upper.panel = 'panel.pie') </span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 연령</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(loan.df<span class="sc">$</span>age, <span class="at">col =</span> <span class="st">'tomato'</span>, <span class="at">main =</span> <span class="st">'연령'</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 대출원금</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(loan.df<span class="sc">$</span>Principal, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">main =</span> <span class="st">'대출원금'</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 기간</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(loan.df<span class="sc">$</span>terms, <span class="at">col =</span> <span class="st">'yellow'</span>, <span class="at">main =</span> <span class="st">'기간'</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 대출상환 상태</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(loan.df<span class="sc">$</span>loan_status), <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>), </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">'대출상환 상태'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 성별</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(loan.df<span class="sc">$</span>Gender), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">'성별'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 최종 학력</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(loan.df<span class="sc">$</span>education), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">beside =</span> T, </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">'최종 학력'</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 대출금 별 대출상환 여부는 어떠한가?</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan.df, <span class="fu">barplot</span>(<span class="fu">table</span>(loan_status, Principal), </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">2</span>), <span class="at">beside =</span> T, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">'대출금 별 대출상환 여부'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        , <span class="at">xlab =</span> <span class="st">'Principal'</span>, <span class="at">ylab =</span> <span class="st">'count'</span>))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">'topleft'</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Success"</span>, <span class="st">"Failure"</span>), </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>))</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 최종학력별 대출상환 여부는 어떠한가?</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan.df, <span class="fu">barplot</span>(<span class="fu">table</span>(loan_status, Gender), <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>), <span class="at">beside =</span> T, <span class="at">main =</span> <span class="st">'대출상환별 성 비율'</span>))</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">'topleft'</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Success"</span>, <span class="st">"Failure"</span>), <span class="at">fill =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>))</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 최종학력별 대출상환 여부는 어떠한가?</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan.df, <span class="fu">barplot</span>(<span class="fu">table</span>(loan_status, education), <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>), <span class="at">beside =</span> T, <span class="at">main =</span> <span class="st">'최종학력별 대출상환 여부'</span>))</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">'bottom'</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Success"</span>, <span class="st">"Failure"</span>), <span class="at">fill =</span> <span class="fu">rainbow</span>(<span class="dv">2</span>))</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="로지스틱-이항분석-대출상환-성공인가-실패인가" class="level2">
+<h2 class="anchored" data-anchor-id="로지스틱-이항분석-대출상환-성공인가-실패인가">로지스틱 이항분석 : 대출상환 성공인가, 실패인가?</h2>
+<p>=&gt; 전체를 training data로 잡았을 때</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>status <span class="ot">&lt;-</span> loan.df<span class="sc">$</span>loan_status</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(status <span class="sc">~</span> ., <span class="at">data =</span> loan.df, <span class="co"># glm() 일반화된 회귀분석</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: algorithm did not converge</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>fitted.values <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pred-Success"</span>, <span class="st">"pred-Failure"</span>)) <span class="co"># 예측값</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(status, pred)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         pred
+status    pred-Failure pred-Success
+  Failure          200            0
+  Success            0          300</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab[<span class="dv">2</span>, <span class="dv">2</span>] <span class="co"># True, Positive</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab[<span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab[<span class="dv">1</span>, <span class="dv">2</span>] <span class="co"># False, Negative</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 분류 모델의 성능 평가 지표: Evaluation Metric</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN) <span class="co"># 정확도</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FP) <span class="co"># 정밀도</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>precision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>recall <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FN) <span class="co"># 재현율</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>recall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type 'citation("pROC")' for a citation.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'pROC'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:colorspace':
+
+    coords</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    cov, smooth, var</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(status <span class="sc">~</span> model<span class="sc">$</span>fitted.values, <span class="at">data =</span> loan.df,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"ROC CURVE"</span>, <span class="at">col =</span> <span class="st">'pink'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = Failure, case = Success</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = status ~ model$fitted.values, data = loan.df,     plot = TRUE, main = "ROC CURVE", col = "pink")
+
+Data: model$fitted.values in 200 controls (status Failure) &lt; 300 cases (status Success).
+Area under the curve: 1</code></pre>
+</div>
+</div>
+<section id="trainging-test-분할-객관적인-평가를-위해" class="level3">
+<h3 class="anchored" data-anchor-id="trainging-test-분할-객관적인-평가를-위해">Trainging Test 분할 : 객관적인 평가를 위해</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 80 : 20 비율 -&gt; 400개 : 100개</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "loan_status", "Principal", "terms", "effective_date", "due_date", "age", "education", "Gender"</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>test_index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>, <span class="dv">100</span>, <span class="at">replace =</span> F) <span class="co"># 1 ~ 500 중 100개, replace = F : 중복추출 X</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> loan.df[<span class="sc">-</span>test_index,]</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> loan.df[test_index,]</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   400 obs. of  8 variables:
+ $ loan_status   : Factor w/ 2 levels "Failure","Success": 2 2 2 2 2 2 2 2 2 2 ...
+ $ Principal     : int  1000 1000 1000 1000 1000 1000 1000 800 300 1000 ...
+ $ terms         : int  30 30 15 30 30 30 30 15 7 15 ...
+ $ effective_date: Date, format: "2016-09-08" "2016-09-08" ...
+ $ due_date      : Date, format: "2016-10-07" "2016-10-07" ...
+ $ age           : int  45 50 27 28 29 36 28 26 29 39 ...
+ $ education     : Factor w/ 4 levels "Bechalor","college",..: 3 1 2 2 2 2 2 2 2 3 ...
+ $ Gender        : Factor w/ 2 levels "female","male": 2 1 2 1 2 2 2 2 2 2 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   100 obs. of  8 variables:
+ $ loan_status   : Factor w/ 2 levels "Failure","Success": 2 1 1 1 2 2 2 2 2 1 ...
+ $ Principal     : int  1000 1000 1000 1000 1000 1000 1000 800 1000 800 ...
+ $ terms         : int  30 30 30 30 30 30 30 15 30 15 ...
+ $ effective_date: Date, format: "2016-09-14" "2016-09-12" ...
+ $ due_date      : Date, format: "2016-10-13" "2016-10-11" ...
+ $ age           : int  29 26 36 35 30 27 29 31 23 35 ...
+ $ education     : Factor w/ 4 levels "Bechalor","college",..: 3 3 3 2 2 3 3 3 3 3 ...
+ $ Gender        : Factor w/ 2 levels "female","male": 2 2 1 1 2 1 2 1 2 2 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(loan_status <span class="sc">~</span> ., <span class="at">data =</span> train,</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)) <span class="co"># 로지스틱 모형</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># test[, -dim(test)[1]] : loan_status 뺀 것</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(model, test[,<span class="sc">-</span><span class="fu">dim</span>(test)[<span class="dv">1</span>]], <span class="at">type =</span> <span class="st">'response'</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pred-Success"</span>,</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pred-Failure"</span>)) <span class="co"># 예측값</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co"># response를 반환값으로 받음.</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="fu">roc</span>(test<span class="sc">$</span>loan_status <span class="sc">~</span> <span class="fu">predict</span>(model, test[, <span class="sc">-</span><span class="fu">dim</span>(test)[<span class="dv">1</span>]], <span class="at">type =</span> <span class="st">'response'</span>),</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"ROC CURVE"</span>, <span class="at">col =</span> <span class="st">'pink'</span>, <span class="at">print.auc =</span> T) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = Failure, case = Success</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="BBJ_Loan-payments_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.formula(formula = test$loan_status ~ predict(model, test[,     -dim(test)[1]], type = "response"), plot = TRUE, main = "ROC CURVE",     col = "pink", print.auc = T)
+
+Data: predict(model, test[, -dim(test)[1]], type = "response") in 40 controls (test$loan_status Failure) &lt; 60 cases (test$loan_status Success).
+Area under the curve: 0.7246</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = loan_status ~ ., family = binomial(link = "logit"), 
+    data = train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7501  -1.1766   0.6775   0.9668   2.0678  
+
+Coefficients:
+                                Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                   -1.057e+04  2.032e+03  -5.200 1.99e-07 ***
+Principal                     -1.772e-04  1.178e-03  -0.150    0.880    
+terms                         -7.654e-04  2.113e-02  -0.036    0.971    
+effective_date                 6.490e-01  1.214e-01   5.346 9.01e-08 ***
+due_date                      -2.921e-02  1.437e-02  -2.033    0.042 *  
+age                           -7.201e-03  1.807e-02  -0.399    0.690    
+educationcollege              -4.218e-02  3.490e-01  -0.121    0.904    
+educationHigh School or Below -1.557e-01  3.480e-01  -0.447    0.655    
+educationMaster or Above       1.360e+01  6.035e+02   0.023    0.982    
+Gendermale                    -1.993e-01  3.130e-01  -0.637    0.524    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 538.41  on 399  degrees of freedom
+Residual deviance: 493.54  on 390  degrees of freedom
+AIC: 513.54
+
+Number of Fisher Scoring iterations: 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 오즈비 (odds ratio)</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 일어날 확률(p) / 일어나지 않을 확률(1-p)</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(model)) <span class="co"># 한 단위가 증가했을 때 1보다 크면 오즈가 증가 =&gt; 성공확률이 높아짐.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  (Intercept)                     Principal 
+                 0.000000e+00                  9.998228e-01 
+                        terms                effective_date 
+                 9.992349e-01                  1.913557e+00 
+                     due_date                           age 
+                 9.712121e-01                  9.928245e-01 
+             educationcollege educationHigh School or Below 
+                 9.586990e-01                  8.558420e-01 
+     educationMaster or Above                    Gendermale 
+                 8.045692e+05                  8.193115e-01 </code></pre>
+</div>
+</div>
+</section>
+<section id="혼동행렬" class="level3">
+<h3 class="anchored" data-anchor-id="혼동행렬">혼동행렬</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(test<span class="sc">$</span>loan_status, pred)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         pred
+          pred-Failure pred-Success
+  Failure           12           28
+  Success            7           53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab[<span class="dv">2</span>, <span class="dv">2</span>] <span class="co"># True, Positive</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab[<span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab[<span class="dv">1</span>, <span class="dv">2</span>] <span class="co"># False, Negative</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 분류 모델의 성능 평가 지표: Evaluation Metric</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (TP <span class="sc">+</span> TN <span class="sc">+</span> FP <span class="sc">+</span> FN) <span class="co"># 정확도</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>accuracy <span class="co"># 정확도 : 현실에 부합할 확률</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.65</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FP) <span class="co"># 정밀도 : 예측 결과가 긍정적일 때 현실도 실제로 긍정일 확률</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>precision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8833333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>recall <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FN) <span class="co"># 재현율(민감도) : 현실이 긍정일때 예측결과도 긍정적일 확률</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>recall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.654321</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

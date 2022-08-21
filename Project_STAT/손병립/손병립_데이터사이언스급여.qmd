@@ -1,0 +1,244 @@
+# 데이터 사이언스 직군의 급여 분석
+
+데이터 출처 : https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries
+
+## 1. 종속변수
+
+-   salary_in_usd : 달러화로 환산된 연봉
+
+## 2. 독립변수
+
+-   work_year, experience_level, employment_type, job_title, remote_ratio, company_size
+
+## 3. 분석내용
+
+### 3.1 데이터 전처리
+
+-   데이터 불러오기
+
+```{r}
+df <- read.csv("ds_salaries.csv")
+str(df)
+```
+
+-   필요없는 열 제거
+
+```{r}
+df <- df[, -c(1, 6, 7, 9, 11)]
+str(df)
+```
+
+-   결측치 확인
+
+```{r}
+sum(is.na(df))
+```
+
+-   employment_type(고용형태)
+
+```{r}
+barplot(table(df$employment_type), las=1)
+```
+
+-   CT(계약직), FL(프리랜서): 안정적인 수입이라 보기 어려움
+-   PT(파트타임): 노동 시간이 달라 수입의 단순 비교 어려움
+-   고용형태 FT인 행만 남기고 employment_type열 제거
+
+```{r}
+df <- df[df$employment_type=="FT", -3]
+str(df)
+```
+
+### 3.2 salary_in_usd(연봉)
+
+#### 3.2.1 통계량 파악
+
+```{r}
+summary(df$salary_in_usd)
+```
+
+```{r}
+boxplot(df$salary_in_usd, col='skyblue', las=1)
+```
+
+```{r}
+hist(df$salary_in_usd, col='skyblue', las=1, ylim=c(0,200),
+     xlab="Salary($)", ylab="Frequency", main="Frequency of Salary")
+```
+
+#### 3.2.2 정규성 평가
+
+```{r}
+library(car)
+qqPlot(df$salary_in_usd, pch=20, col='skyblue', id=F, main="Q-Q Plot", las=1, ylab = '')
+```
+
+```{r}
+shapiro.test(df$salary_in_usd)
+```
+
+-   유의수준 0.05에서 귀무가설 기각
+-   연봉은 정규성을 따르지 않음
+
+### 3.3 work_year(급여 연도)
+
+#### 3.3.1 빈도
+
+```{r}
+df$work_year <- factor(df$work_year)
+barplot(table(df$work_year), col=c(2,3,4), las=1)
+```
+
+#### 3.3.2 연도별 분산의 동일성 검정
+
+```{r}
+leveneTest(df$salary_in_usd ~ df$work_year)
+```
+
+-   유의수준 0.05에서 각 연도별 연봉은 등분산성을 가짐
+
+#### 3.3.3 연도별 평균 연봉
+
+```{r}
+barplot(tapply(df$salary_in_usd, df$work_year, mean), col=c(2,3,4), ylim=c(0,150000), las=1)
+```
+
+#### 3.3.4 연봉-연도 일원분산분석
+
+```{r}
+year.aov <- aov(df$salary_in_usd ~ df$work_year)
+summary(year.aov)
+```
+
+-   유의수준 0.05에서 연도별 연봉의 차이는 존재
+
+### 3.4 experience_level(직급)
+
+#### 3.4.1 빈도
+
+```{r}
+df$experience_level <- factor(df$experience_level)
+barplot(table(df$experience_level), col=c(2:5), ylim=c(0,300), las=1)
+```
+
+#### 3.4.2 직급별 분산의 동일성 검정
+
+```{r}
+leveneTest(df$salary_in_usd ~ df$experience_level)
+```
+
+-   유의수준 0.05에서 각 연도별 연봉은 등분산성가정을 따르지 않음
+
+#### 3.4.3 직급별 평균 연봉
+
+```{r}
+barplot(tapply(df$salary_in_usd, df$experience_level, mean), col=c(2:5), ylim=c(0,200000), las=1)
+```
+
+#### 3.4.4 연봉-직급 일원분산분석
+
+```{r}
+oneway.test(df$salary_in_usd ~ df$experience_level)
+```
+
+-   유의수준 0.05에서 직급별 연봉의 차이는 존재
+
+### 3.5 remote_ratio(재택근무 비율)
+
+#### 3.5.1 빈도
+
+```{r}
+df$remote_ratio <- factor(df$remote_ratio, levels=c(0,50,100),
+                              labels=c("No", "ST", "All"))
+barplot(table(df$remote_ratio), col=c(2:4), ylim=c(0,400), las=1)
+```
+
+#### 3.5.2 재택근무 비율별 분산의 동일성 검정
+
+```{r}
+leveneTest(df$salary_in_usd ~ df$remote_ratio)
+```
+
+-   유의수준 0.05에서 재택근무 빈도별 연봉은 등분산성가정을 따르지 않음
+-   유의수준 0.01에서는 등분산 가정을 따름
+
+#### 3.5.3 재택근무 비율별 평균 연봉
+
+```{r}
+barplot(tapply(df$salary_in_usd, df$remote_ratio, mean), col=c(2:4), ylim=c(0,150000), las=1)
+```
+
+#### 3.5.4 연봉-재택근무 비율 일원분산분석
+
+```{r}
+rem.aov <- aov(df$salary_in_usd ~ df$remote_ratio)
+summary(rem.aov)
+```
+
+-   유의수준 0.05에서 재택근무 비율별 연봉의 차이는 존재
+
+### 3.6 company_size(회사 규모)
+
+#### 3.6.1 빈도
+
+```{r}
+df$company_size <- factor(df$company_size)
+barplot(table(df$company_size), col=c(2:4), ylim=c(0,350), las=1)
+```
+
+#### 3.6.2 회사 규모별 분산의 동일성 검정
+
+```{r}
+leveneTest(df$salary_in_usd ~ df$company_size)
+```
+
+-   유의수준 0.05에서 회사 규모별 연봉은 등분산성가정을 따르지 않음
+
+#### 3.6.3 회사 규모별 평균 연봉
+
+```{r}
+barplot(tapply(df$salary_in_usd, df$company_size, mean), col=c(2:4), ylim=c(0,150000), las=1)
+```
+
+#### 3.6.4 연봉-회사규모 일원분산분석
+
+```{r}
+oneway.test(df$salary_in_usd ~ df$company_size)
+```
+
+-   유의수준 0.05에서 재택근무 비율별 연봉의 차이는 존재
+
+### 4. 사후분석
+
+#### 4.1 연도
+
+```{r}
+plot(TukeyHSD(year.aov))
+```
+
+#### 4.2 직급
+
+```{r}
+lev.aov <- aov(df$salary_in_usd ~ df$experience_level)
+plot(TukeyHSD(lev.aov),las=1)
+```
+
+#### 4.3 재택근부 비율
+
+```{r}
+plot(TukeyHSD(rem.aov), las=1)
+```
+
+#### 4.4 회사 규모
+
+```{r}
+comp.aov <- aov(df$salary_in_usd ~ df$company_size)
+plot(TukeyHSD(comp.aov),las=1)
+```
+
+### 5. 결론
+[연봉 2022년 올랐음]{style="color:tomato"}\
+[직급별 차이 물론 존재]{style="color:tomato"}\
+[재택근무 All-No는 통계적으로 유의미한 차이X]{style="color:tomato"}\
+[때때로 재택근무하는 사람의 연봉은 All, No에 비해 낮음]{style="color:tomato"}\
+[회사규모 M-L 통계적으로 차이X]{style="color:tomato"}\

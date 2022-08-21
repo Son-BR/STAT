@@ -1,0 +1,27 @@
+https://new.portmis.go.kr/portmis/websquare/websquare.jsp?w2xPath=/portmis/w2/main/index.xml&page=/portmis/w2/cm/sys/UI-PM-MT-001-021.xml&menuld=0045&menuCd=M4735&menuNm=%BB%E7%C0%CC%C6%AE%CA
+
+선박입출항통계
+기간별 항만별 선박종류별 해외지역별 전년대비기간별 전년대비선종별 전년대비톤급별 전년대비 국가별 전년대비입출항
+
+화물
+화물수송총괄 품목별입출항 지역별현황 연안화물 품목별화물처리실적 컨/비턴품목별전년대비 해외지역별전년대비 국가별 전년대비 지정화물처리식적 컨/비컨 품목별
+
+컨테이너
+수송실적총괄 전년대비항만별 전년대비추이 국가별전년대비 규격별처리실적 해외지역별처리실적
+
+부산 광양 울산 인천 평택당진
+
+##선박
+#항만별
+#국가별
+
+#화물
+항만별
+국가지역별
+품목별
+(수출입액)https://unipass.customs.go.kr/ets/
+연도/월
+
+데이터 출처
+https://new.portmis.go.kr/portmis/websquare/websquare.jsp?w2xPath=/portmis/w2/main/index.xml&page=/portmis/w2/cm/sys/UI-PM-MT-001-021.xml&menuId=0045&menuCd=M4735&menuNm=%BB%E7%C0%CC%C6%AE%B8%CA
+화물통계-내외항품목별화물수송입출항(부산광양울산인천 2017-2021)

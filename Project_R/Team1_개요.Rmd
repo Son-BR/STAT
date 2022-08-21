@@ -1,0 +1,35 @@
+# R데이터분석 미니프로젝트 1조
+ - github: https://github.com/Son-BR/Project_R
+
+## **역할 소개**
+
+ - **손병립** : 팀장
+ - **곽성화** : Titanic 데이터 분석
+ - **김도영** : Pima Indians Diabetes 데이터 분석
+ - **이재훈** : House Price 데이터 분석
+ - **허채범** : Bike Sharing Demand 데이터 분석
+ 
+
+## **프로젝트 내용**(종속 변수)
+
+ - **곽성화** : Survived(생존여부)
+ - **김도영** : Outcome(당뇨발병 여부)
+ - **이재훈** : SalePrice(집 판매 가격)
+ - **허채범** : count(자전거 대여 횟수)
+ 
+## **토의내용**
+<b><span style="font-size:170%" ><span style='color:tomato' >결측치</span></span></b>  
+ - 결측치(Titanic)  
+<b><span style="font-size:170%" ><span style='color:tomato' >이상치</span></span></b>  
+ - 데이터를 그대로 사용할 지, 뺄지, 다른값으로 채울지 등 고민
+ 
+
+## **깃허브 사용**
+ - 충돌문제(branches)
+ 
+## **팀장**
+ - 팀장의 역할
+ - 힘든 점
+
+
+ 

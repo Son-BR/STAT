@@ -1,0 +1,46 @@
+# Titanic 분석
+```{r}
+
+```
+
+## 데이터 프레임 읽어오기
+
+```{r}
+df<-read.csv('./Data/Titanic/train.csv',header=1)
+str(df)
+```
+
+## 승객 등급별 사망여부
+```{r}
+mosaicplot(Pclass~Survived,data=df,
+           col=2:4)
+```
+
+## 출발 항구별 승객수는 얼마일까요?
+```{r}
+table(df$Embarked)
+barplot(table(df$Embarked),col=2:4)
+```
+
+# 결측치 분포는 어떠할까요?
+```{r}
+library(VIM)
+aggr(df, numbers=T,prop=T)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
