@@ -42,3 +42,6 @@ gapminder[gapminder$year == 2007,] %>%
           hovertext = ~pop,
           hoverinfo = "x+y+name+text"
           )
+
+library(esquisse)
+esquisser()

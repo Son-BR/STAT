@@ -1,6 +1,8 @@
 # 데이터 불러오기
+getwd()
 df <- read.csv("./Project_Visual/result.csv")
 df <- df[df$항만명 == "부산", ]
+
 
 str(df)
 
@@ -245,3 +247,10 @@ animate(myPlot, duration = 5, fps = 20, width = 2000, height = 400, renderer = g
 anim_save("5year10.gif")
 
 a
+
+
+# ======================================================================================
+
+
+library(esquisse)
+esquisser()
