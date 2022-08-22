@@ -20,7 +20,8 @@ ui <- pageWithSidebar(
       tabPanel("airquality", dataTableOutput("mytable3"))
     )
   )
-  
+###########
+# plotlyOut("graph") 
 )
 
 server <- function(input, output) {
@@ -42,3 +43,6 @@ server <- function(input, output) {
 }
 
 shinyApp(ui, server)
+
+
+

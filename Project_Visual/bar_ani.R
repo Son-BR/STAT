@@ -66,7 +66,7 @@ anim_save("288-animated-barplot-transition.gif")
 library(ggplot2)
 library(gganimate)
 
-df.test <- df[df$조회년도==2017&df$입출항구분=="입항"&df$Measures=="총계",c(2,7:38)]
+df.test <- df[df$조회년도==2017&df$입출항구분=="출항"&df$Measures=="총계",c(2,7:38)]
 names(df.test)[2:33]
 df.test
 # Make 2 basic states and concatenate them:
@@ -105,7 +105,9 @@ library(png)
 animate(myPlot, duration = 5, fps = 20, width = 2000, height = 400, renderer = gifski_renderer())
 anim_save("288-animated-barplot-transition.gif")
 
-
+A <- rep(c("A","B","C"),4)
+B <- rep(c("a","b","c","d"),3)
+data.frame(A,B)
 # ======================================================================
 
 #tapply(벡터,그룹화기준,함수)
@@ -251,6 +253,29 @@ a
 
 # ======================================================================================
 
-library(ggrepel)
+
 library(esquisse)
 esquisser()
+
+
+# ================================================================================
+
+df <- read.csv("./Project_Visual/result.csv")
+df <- df[df$항만명 == "부산", ]
+df.ex <- df[df$입출항구분 %in% c("입항", "출항") & df$Measures == "총계", c(1:6)]
+
+# 입출항 총계만
+df.ex
+
+# =============================================================================
+
+# 꺾은선 그래프 애니메이션 기본
+
+# libraries:
+library(ggplot2)
+library(gganimate)
+library(hrbrthemes)
+library(viridis)
+library(dplyr)
+
+library(babynames)

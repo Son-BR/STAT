@@ -10,6 +10,7 @@ p <- ggplot(data = subset(gapminder, year == 2007),
   scale_x_log10() +
   geom_smooth()
 
+p
 ggplotly(p)
 
 

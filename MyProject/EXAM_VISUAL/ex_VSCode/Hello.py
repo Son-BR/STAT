@@ -1,6 +1,3 @@
-def swap(n,m):
-    return m, n
 
-n, m = 10, 20
+# n부터 m까지의 합
 
-print(swap(n, m))
