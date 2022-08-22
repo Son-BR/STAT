@@ -1,0 +1,11 @@
+---
+title: "VSCode 연습"
+---
+
+## Visual Studio Code
+
+```{r}
+str(iris)
+plot(iris[,-5], pch = 19, col = "tomato")
+```
+

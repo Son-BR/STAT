@@ -254,3 +254,15 @@ a
 
 library(esquisse)
 esquisser()
+
+# =============================================================================
+
+df <- read.csv("./Project_Visual/result.csv")
+df <- df[df$항만명 == "부산", ]
+df.ex <- df[df$입출항구분 %in% c("입항", "출항") & df$Measures == "총계", c(1:6)]
+
+# 입출항 총계만
+df.ex
+
+df
+str(iris)
